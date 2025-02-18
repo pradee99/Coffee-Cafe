@@ -1,0 +1,18 @@
+/* Menu container */
+
+.Menu {
+    max-width: 800px;
+    margin: 40px auto; /* Center the menu */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Title */
+  .Menu h3 {
+    font-size: 2rem;
+    color: #5d4037; /* Coffee brown */
+    margin-bottom: 20px;
+  }

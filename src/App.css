@@ -1,0 +1,97 @@
+/*App.css*/
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #2C1D15;
+  color: white;
+}
+
+.container {
+  text-align: center;
+  
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-text {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.menu-button {
+  background-color: #FFB400;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.menu-button:hover {
+  background-color: #e0a000;
+}
+
+.menu {
+  padding: 50px 20px;
+}
+
+.menu-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.menu-items {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.menu-item {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.menu-item-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.testimonials {
+  background-color: #3A2A20;
+  padding: 50px 20px;
+}
+
+.testimonials-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.testimonial-text {
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+
+.footer {
+  background-color: #1A110E;
+  padding: 20px;
+}
+
