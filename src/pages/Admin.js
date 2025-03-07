@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Admin.css";
 
 function Admin({ setItems, setUpdateMessage }) {
-  const [localItems, setLocalItems] = useState([]);  // Local state to manage items
-  const [newItem, setNewItem] = useState("");         // State for item name
-  const [newPrice, setNewPrice] = useState("");       // State for item price
+  const [localItems, setLocalItems] = useState([]); // Local state to manage items
+  const [newItem, setNewItem] = useState(""); // State for item name
+  const [newPrice, setNewPrice] = useState(""); // State for item price
   const [editingIndex, setEditingIndex] = useState(null);
 
   const handleAdd = () => {
     if (newItem.trim() === "" || newPrice.trim() === "") return; // Ensure both fields are filled
+    if (isNaN(Number(newPrice))) {
+      alert("Price must be a valid number.");
+      return;
+    }
     if (editingIndex !== null) {
       const updatedItems = [...localItems];
       updatedItems[editingIndex] = { name: newItem, price: newPrice };
@@ -32,10 +36,16 @@ function Admin({ setItems, setUpdateMessage }) {
   };
 
   const handleUpdateMenu = () => {
-    setItems(localItems); // Use `setItems` (the prop) to update the global state
-    setUpdateMessage("You have successfully updated the Menu!"); // Success message
-    setTimeout(() => setUpdateMessage(""), 3000); // Clear message after 3 seconds
+    setItems(localItems); // Update the parent component's state
   };
+
+  useEffect(() => {
+    if (localItems.length > 0) {
+      setUpdateMessage("You have successfully updated the Menu!");
+      const timeout = setTimeout(() => setUpdateMessage(""), 3000);
+      return () => clearTimeout(timeout);
+    }
+  }, [localItems, setUpdateMessage]);
 
   return (
     <div className="App">
@@ -49,14 +59,16 @@ function Admin({ setItems, setUpdateMessage }) {
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
           placeholder="Enter item name"
+          aria-label="Item Name"
         />
         <input
           type="text"
           value={newPrice}
           onChange={(e) => setNewPrice(e.target.value)}
           placeholder="Enter item price"
+          aria-label="Item Price"
         />
-        
+
         {/* Button to add or update an item */}
         <button onClick={handleAdd}>
           {editingIndex !== null ? "Update" : "Add"}
@@ -93,5 +105,6 @@ function Admin({ setItems, setUpdateMessage }) {
 }
 
 export default Admin;
+
 
 
